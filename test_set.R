@@ -45,6 +45,8 @@ pred_grid <- big_prodMat( G2, beta_grid, ind.col = info_snp$`_NUM_ID_`)
 
 
 ind.val <- phenotype[,1]
+
+
 ## Hyper-parameter selection: Best R-squared
 
 grid.param$score <- apply(pred_grid[ind.val,],2,function(x){
@@ -74,7 +76,7 @@ grid.param %>%
 ## 10 0.320 0.1467  FALSE 0.291        0  32
 
 
-
+## Plotting for hyper-parameter selection
 library(ggplot2)
 ggplot(grid.param, aes(x = p, y = score, color = as.factor(h2))) +
   theme_bigstatsr() +
