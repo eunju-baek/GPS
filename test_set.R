@@ -14,7 +14,7 @@ obj.bigSNP <- snp_attach("/BiO/enju07/4_LDpred/2_GPS/phase3/0_test/v3/mer_test_v
 G_obj <- obj.bigSNP$genotypes
 CHR_obj <- obj.bigSNP$map$chromosome
 POS_obj <- obj.bigSNP$map$physical.pos
-G2_obj <- snp_fastImputeSimple(G)
+G2_obj <- snp_fastImputeSimple(G_obj)
 
 sumstats <- bigreadr::fread2("/BiO/jionekang/GIANT,UKB_meta_gwas_bmi/Meta-analysis_Locke_et_al+UKBiobank_2018_UPDATED.txt")
 sumstats2 <- sumstats [ , c(1,3,2,4,5,7,8,9,10)]
@@ -44,7 +44,7 @@ beta_grid <- snp_ldpred2_grid(corr, df_beta, grid.param, ncores = NCORES)
 pred_grid <- big_prodMat( G2, beta_grid, ind.col = info_snp$`_NUM_ID_`)
 
 
-
+ind.val <- phenotype[,1]
 ## Hyper-parameter selection: Best R-squared
 
 grid.param$score <- apply(pred_grid[ind.val,],2,function(x){
