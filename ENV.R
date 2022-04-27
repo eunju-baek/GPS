@@ -11,6 +11,7 @@ library(dplyr)
 
 pheno <- fread(phenotype)
 
+# env file is expected to be a raw("eid",...| ex. 30101..etc.) file
 env <- fread(environment)
 
 names(env)[1] <- "FID"
@@ -21,7 +22,7 @@ a <- left_join(pheno,env,by= "FID")
 
 #you can customize filter
 
-filt <- paste(names(env)[1:ncol(env)],collapse=">=0&")
+filt <- paste(names(env)[2:ncol(env)],collapse=">=0&")
 
 filt <- as.logical(filt)
 
