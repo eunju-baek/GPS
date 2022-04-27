@@ -30,10 +30,7 @@ phenotype <- fread("/BiO/enju07/4_LDpred/2_GPS/phase3/phenopheno_275809_vali.txt
 pheno_vali <- phenotype[fam.order, on = c("FID", "IID")]
 
 
-
-pred <- big_prodVec(G, best_beta_grid, ind.row = ind.test,
-                    ind.col = df_beta[["_NUM_ID_"]])
-pred_grid <- big_prodMat( G2_vali, beta_grid, ind.col = info_snp$`_NUM_ID_`)
+pred_grid_vali <- big_prodMat( G2_vali, beta_grid, ind.col = info_snp$`_NUM_ID_`)
 
 
 
@@ -46,3 +43,7 @@ pred_grid <- big_prodMat( G2_vali, beta_grid, ind.col = info_snp$`_NUM_ID_`)
 #  slice(1) %>%
 #  pull(id) %>%
 #  beta_grid[, .]
+
+
+pred_vali <- big_prodVec(G, best_beta_grid, ind.row = ind.test,
+                    ind.col = df_beta[["_NUM_ID_"]])
