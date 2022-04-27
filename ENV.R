@@ -27,4 +27,4 @@ filt <- as.logical(filt)
 
 a <-filter(a,filt)
 
-fwrite(a,'pheno_QCed.txt',quote=F,sep='\t',row.names=F,na="NA")
+fwrite(a,'pheno_afterQC.txt',quote=F,sep='\t',row.names=F,na="NA")
