@@ -45,5 +45,5 @@ pred_grid_vali <- big_prodMat( G2_vali, beta_grid, ind.col = info_snp$`_NUM_ID_`
 #  beta_grid[, .]
 
 
-pred_vali <- big_prodVec(G, best_beta_grid, ind.row = ind.test,
+pred_vali <- big_prodVec(G_vali, best_beta_grid, ind.row = ind.vali,
                     ind.col = df_beta[["_NUM_ID_"]])
