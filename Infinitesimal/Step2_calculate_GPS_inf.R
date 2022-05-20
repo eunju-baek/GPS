@@ -136,3 +136,6 @@ score <- cbind(fam.order2,pred_inf)
 
 phenotype <- fread("../pheno/Standing_height_vali_raw.txt")
 pheno <- left_join(phenotype,score,by=c("FID","IID"))
+
+
+paste(names(pheno)[c(3,4,6:16)],collapse='+') %>% paste("int ~ norm_pred_inf+",.) %>% lm(.,data=pheno) %>% summary()
