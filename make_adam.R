@@ -14,8 +14,10 @@ hwe_list <- fread("test_mode.hwe")
 hwe_list2 <- list()
 hwe_list2 <- str_split(hwe_list[,6],by="/")
 hwe_list3 <- do.call("rbind",hwe_list2)
-hwe_list4 <- cbind(hwe_list,hwe_list3)
-hwe_list5 <- hwe_list4
+hwe_list4 <- as.numeric(hwe_list3)
+dim(hwe_list4) <- c(1141242,3)
+names(hwe_list4) <- c("N1","N2","N3")
+hwe_list5 <- cbind(hwe_list,hwe_list4)
 
 
 # Count maximum N
