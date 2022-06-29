@@ -51,6 +51,9 @@ snp_readBed("QCref2.bed")
 ##    ..$ allele2     : chr [1:1141242] "A" "G" "T" "G" ...
 ##   - attr(*, "class")= chr "bigSNP"
 
+map <- info$map[,-c(2:3)]
+names(map) <- c("chr", "pos", "a0", "a1")
+
 sumstats2 <- sumstats[,c(1,3,2,5,4,9,10,12,8)]
 ## Classes ??data.table?? and 'data.frame':	1352168 obs. of  9 variables:
 ##  $ #CHROM: int  1 1 1 1 1 1 1 1 1 1 ...
@@ -77,6 +80,7 @@ on.exit(file.remove(paste0(tmp, ".sbk")), add = TRUE)
 corr <- NULL
 ld <- NULL
 fam.order <- NULL
+G <- info$genotypes
 CHR <- map$chr
 chr <- map$chr
 POS <- map$pos
