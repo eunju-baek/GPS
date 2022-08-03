@@ -17,3 +17,4 @@ names(fin3) <- c('CHR','SNP','BP','A1','A2','BETA','SE','P')
 
 
 fwrite(fin3,'input_finngen_R6_I9_STR_EXH.txt',quote=F,sep='\t',row.names=F)
+ 
